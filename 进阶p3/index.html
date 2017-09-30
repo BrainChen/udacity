@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo.png">
+    <title>街区地图</title>
+    <script src="js/knockout-3.4.2.js">
+    </script>
+    <script src="js/jQuery.js">
+    </script>
+  </head>
+  <body>
+    <header>
+      <p>Adventure in Tianjin!
+      </p>
+    </header> 
+
+    <div class="contain">
+      <div class="places">
+        <p>
+          <input data-bind="textInput: place">
+        </p>
+        <ul data-bind="foreach: detail">
+          <a href="#information" id="items" class="place-items">
+			<span data-bind="click: function() {moveMarker($data.id)}">for detail</span>
+			<li class="place-items" data-bind="text: name"></li>
+		  </a>
+        </ul>
+      </div>
+
+      <div id="map">
+      </div>
+      <a name="information"></a>
+      <div class="information">
+        
+      </div>
+    </div>
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXScumJ9si3DyC5xV8temc5rCzKwimhq8&v=3&callback=initMap"
+            onerror="mapError()">
+    </script>
+    <script src="js/script.js">
+    </script>
+  </body>
+</html>
